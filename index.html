@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample HTML File</title>
+
+</head>
+
+<body>
+  <form>
+    <label for="textText">Enter SOL Token:</label>
+    <input type="text" id="textText" name="textText"><br><br>
+    <button type="submit" onclick="handleSubmit()">Submit</button>
+  </form>
+  
+  <!-- <script src="https://solana.com/js/web3.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js"></script>
+  <script src="your-script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
+ -->
+
+  <script>src = "https://unpkg.com/@solana/web3.js@latest/lib/index.life.min.js"</script>
+  <script>
+    const { Connection, PublicKey } = solanaWeb3;
+  </script>
+//how to add solana web 3 in html file?
+
+  <script>
+
+    function handleSubmit() {
+
+      var solonaPublicKey = document.getElementById("InputText").value
+
+      // var web3 = new Web3('https://solana-api.projectserum.com');f
+
+      //copied code
+      // connection
+      const connection = new Connection("https://api.devnet.solana.com");
+
+      let publicKeyObject = new PublicKey(solonaPublicKey)
+
+      const fn = (async () => {
+        // 1e9 lamports = 10^9 lamports = 1 SOL
+        let txhash = await connection.requestAirdrop(feePayer.publicKey, 1e9);
+        console.log(`txhash: ${txhash}`);
+
+
+
+
+        //if someone wat sol then have to enter this 494nF51apJwo29w4BpxbZneP2Apu6GgBPjcDBYKivn9r
+        var textField = document.getElementById("text-field");
+        var inputValue = textField.value;
+        alert("You entered: " + inputValue);
+      })();
+      fn();
+      // Add more logic here to process the form data as needed
+    }
+  </script>
+
+
+  
+</body>
+
+</html>
